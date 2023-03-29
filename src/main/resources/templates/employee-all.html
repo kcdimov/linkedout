@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/fragment::head}">
+</head>
+<body>
+
+<header th:replace="~{fragments/fragment::navigation-bar}">
+</header>
+<main>
+    <div class="container">
+        <h2 class="text-center text-dark bg-light rounded-circle mt-5">All employees</h2>
+        <hr style="width: 50%"/>
+        <div class='row mb-4 d-flex justify-content-around'>
+
+            <div th:each="employee : ${allEmployees}" th:object="${employee}"  class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
+                <h2>Full name: <span th:text="*{firstName}"></span> <span th:text="*{lastName}"></span></h2>
+                <h4><span th:text="|Job title: *{jobTitle}|"></span></h4>
+                <h4><span th:text="|Date: ${#dates.format(employee.birthdate, 'dd-MM-yyyy')}|"></span></h4>
+                <h4><a class="btn-block" th:href="@{/employees/employee-details/{id}(id = *{id})}">Detail info</a></h4>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="footer" th:replace="~{fragments/fragment::footer}">
+</footer>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/fragment::head}"></head>
+<body>
+
+<header th:replace="~{fragments/fragment::navigation-bar}">
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <main class="jumbotron text-center rounded col-md-12 align-self-center">
+                <div class="justify-content-center">
+                    <h1>Company Details</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 bg-dark"><img src="/images/company.png" height="350px"></div>
+                    <div th:object="${company}" class="col-md-6 bg-dark">
+                        <h2>Company</h2>
+                        <h4><span th:text="|Name: *{name}|"></span></h4>
+                        <h4><span th:text="|Town: *{town}|"></span></h4>
+                        <h4><span th:text="|Description: *{description}|"></span></h4>
+                        <h4><span th:text="|Budget: *{budget}|"></span></h4>
+                        <form th:action="@{/companies/company/{id}(id=${id})}" th:method="delete">
+                            <input class="btn btn-danger align-bottom" type="submit" value="Delete Company"
+                            onclick="return confirm('Do you really want to delete the company? Are you sure?')">
+                        </form>
+<!--                        <div class="align-bottom"><a class="btn btn-danger align-bottom"-->
+<!--                                                     href="/">Delete company</a>-->
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</main>
+<footer id="footer" th:replace="~{fragments/fragment::footer}"></footer>
+</body>
+</html>

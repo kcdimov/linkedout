@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/fragment::head}">
+</head>
+<body>
+<header th:replace="~{fragments/fragment::navigation-bar}"></header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <main class="jumbotron text-center rounded col-md-12 align-self-center">
+                <div class="justify-content-center">
+                    <h1>Employee Details</h1>
+                </div>
+                <div th:object="${employee}" class="row">
+                    <div class="col-md-6 bg-dark">
+                        <h2>Employee</h2>
+                        <h4><span th:text="|First Name: *{firstName}|" ></span></h4>
+                        <h4><span th:text="|Last Name: *{lastName}|"></span></h4>
+                        <h4><span th:text="|Education Level: *{educationLevel}|"></span></h4>
+                        <h4><span th:text="|Job title: *{jobTitle}|"></span></h4>
+                        <h4><span th:text="|Birthdate: ${#dates.format(employee.birthdate, 'dd-MM-yyyy')}|">
+                            </span></h4>
+                        <h4><span th:text="|Salary: *{salary}$|"></span></h4>
+                        <h4><span th:text="|Company: *{company.getName()}|"></span></h4>
+                        <form th:action="@{/employees/employee-details/{id}(id=${id})}" th:method="delete">
+                            <input lass="btn btn-danger align-bottom" type="submit" value="Delete Employee"
+                            onclick="return confirm('Are you sure, you want to delete the existing employee')">
+                        </form>
+
+                    </div>
+                    <div class="col-md-6 bg-dark"><img src="/images/employee.png" height="350px"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+</main>
+<footer id="footer" th:replace="~{fragments/fragment :: footer}">
+</footer>
+</body>
+</html>
