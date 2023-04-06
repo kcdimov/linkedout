@@ -21,7 +21,8 @@ public class Employee {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
     @Column(name = "education_level")
-    private String educationLevel;
+    @Enumerated(EnumType.STRING)
+    private EducationLevel educationLevel;
     @Column(name = "first_name")
     @NotNull
     @Length(min = 2)
@@ -60,11 +61,11 @@ public class Employee {
         this.birthdate = birthdate;
     }
 
-    public String getEducationLevel() {
+    public EducationLevel getEducationLevel() {
         return educationLevel;
     }
 
-    public void setEducationLevel(String educationLevel) {
+    public void setEducationLevel(EducationLevel educationLevel) {
         this.educationLevel = educationLevel;
     }
 

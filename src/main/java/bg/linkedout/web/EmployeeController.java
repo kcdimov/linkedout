@@ -60,7 +60,7 @@ public class EmployeeController {
 
 
         this.employeeService.addEmployee(modelMapper.map(employeeAddDto, EmployeeServiceModel.class), employeeAddDto);
-        return "redirect:/employee-all";
+        return "redirect:/employees/all";
     }
 
     @GetMapping("/all")
