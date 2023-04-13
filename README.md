@@ -29,3 +29,8 @@ Employee:
 - jobTitle – a char sequence. Cannot be null. Must be at least 3 characters.
 
 - salary – a number (must be a positive number). Cannot be null.
+
+Programming languages:  Java
+Tools: IntelliJ IDEA, Spring, HTML, CSS
+
+Database: MySQL
