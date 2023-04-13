@@ -31,6 +31,9 @@ Employee:
 - salary – a number (must be a positive number). Cannot be null.
 
 Programming languages:  Java
+
 Tools: IntelliJ IDEA, Spring, HTML, CSS
+
+Template: Thymeleaf
 
 Database: MySQL
