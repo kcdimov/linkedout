@@ -32,8 +32,6 @@ Employee:
 
 Programming languages:  Java
 
-Tools: IntelliJ IDEA, Spring, HTML, CSS
-
-Template: Thymeleaf
+Tools: IntelliJ IDEA, Spring, HTML, CSS, Thymeleaf
 
 Database: MySQL
